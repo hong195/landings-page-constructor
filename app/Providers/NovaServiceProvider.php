@@ -16,9 +16,6 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     public function boot()
     {
         parent::boot();
-
-        \Spatie\NovaTranslatable\Translatable::defaultLocales(['ru', 'en']);
-
     }
 
     /**
