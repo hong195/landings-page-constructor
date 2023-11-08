@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "39592c25f69ca99241063865e9466bac",
+    "content-hash": "91d55980a67f56c4534755aa00e3c42a",
     "packages": [
         {
             "name": "badinansoft/nova-language-switch",
@@ -828,17 +828,11 @@
         },
         {
             "name": "ebess/advanced-nova-media-library",
-            "version": "4.1.6",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/ebess/advanced-nova-media-library.git",
-                "reference": "83b8410fe63b607dc7eda6b990cef33f971a6f9f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ebess/advanced-nova-media-library/zipball/83b8410fe63b607dc7eda6b990cef33f971a6f9f",
-                "reference": "83b8410fe63b607dc7eda6b990cef33f971a6f9f",
-                "shasum": ""
+                "url": "https://github.com/hong195/advanced-nova-media-library.git",
+                "reference": "4cc50f391a82de9afb04fc6c93a2fe56a3f77545"
             },
             "require": {
                 "laravel/framework": "^8.0|^9.0|^10.0",
@@ -846,6 +840,7 @@
                 "php": ">=7.4",
                 "spatie/laravel-medialibrary": "^8.0|^9.0|^10.0"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -859,7 +854,6 @@
                     "Ebess\\AdvancedNovaMediaLibrary\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -868,11 +862,7 @@
                 "laravel",
                 "nova"
             ],
-            "support": {
-                "issues": "https://github.com/ebess/advanced-nova-media-library/issues",
-                "source": "https://github.com/ebess/advanced-nova-media-library/tree/4.1.6"
-            },
-            "time": "2023-08-24T08:28:55+00:00"
+            "time": "2023-11-08T11:15:35+00:00"
         },
         {
             "name": "egulias/email-validator",
@@ -4259,16 +4249,16 @@
         },
         {
             "name": "ramsey/uuid",
-            "version": "4.7.4",
+            "version": "4.7.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramsey/uuid.git",
-                "reference": "60a4c63ab724854332900504274f6150ff26d286"
+                "reference": "5f0df49ae5ad6efb7afa69e6bfab4e5b1e080d8e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramsey/uuid/zipball/60a4c63ab724854332900504274f6150ff26d286",
-                "reference": "60a4c63ab724854332900504274f6150ff26d286",
+                "url": "https://api.github.com/repos/ramsey/uuid/zipball/5f0df49ae5ad6efb7afa69e6bfab4e5b1e080d8e",
+                "reference": "5f0df49ae5ad6efb7afa69e6bfab4e5b1e080d8e",
                 "shasum": ""
             },
             "require": {
@@ -4335,7 +4325,7 @@
             ],
             "support": {
                 "issues": "https://github.com/ramsey/uuid/issues",
-                "source": "https://github.com/ramsey/uuid/tree/4.7.4"
+                "source": "https://github.com/ramsey/uuid/tree/4.7.5"
             },
             "funding": [
                 {
@@ -4347,7 +4337,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-04-15T23:01:58+00:00"
+            "time": "2023-11-08T05:53:05+00:00"
         },
         {
             "name": "rap2hpoutre/fast-excel",
@@ -9824,12 +9814,14 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "ebess/advanced-nova-media-library": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^8.1"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.2.0"
 }

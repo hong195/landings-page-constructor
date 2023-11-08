@@ -8,12 +8,16 @@
         {
             "type": "composer",
             "url": "https://nova.laravel.com"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/hong195/advanced-nova-media-library.git"
         }
     ],
     "require": {
         "php": "^8.1",
         "badinansoft/nova-language-switch": "^1.2",
-        "ebess/advanced-nova-media-library": "^4.1",
+        "ebess/advanced-nova-media-library": "dev-master",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.10",
         "laravel/nova": "^4.0",

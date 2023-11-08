@@ -552,6 +552,9 @@ body {
     width: 60rem;
     background: grey;
     position: relative; }
+    .map-main__wrap {
+      width: 100%;
+      height: 100%; }
     .map-main__img {
       width: 100%;
       height: 100%; }
@@ -574,24 +577,6 @@ body {
         display: block;
         -o-object-fit: cover;
            object-fit: cover; }
-      .map-main__svg .road {
-        stroke-width: 0;
-        -webkit-transition: .6s all;
-        transition: .6s all; }
-        .map-main__svg .road.show {
-          stroke-width: 3; }
-      .map-main__svg .marker {
-        -webkit-transform: translateY(1rem);
-                transform: translateY(1rem);
-        opacity: 0;
-        -webkit-transition: .6s all;
-        transition: .6s all;
-        -webkit-transition-delay: .2s;
-                transition-delay: .2s; }
-        .map-main__svg .marker.show {
-          -webkit-transform: none;
-                  transform: none;
-          opacity: 1; }
       .map-main__svg .logo {
         -webkit-animation: mapLogo 1s linear infinite alternate;
                 animation: mapLogo 1s linear infinite alternate; }
@@ -616,15 +601,7 @@ body {
       -webkit-box-direction: normal;
           -ms-flex-direction: column;
               flex-direction: column;
-      padding-left: 1rem;
-      opacity: 0;
-      visibility: hidden;
-      -webkit-transform: translateY(1rem);
-              transform: translateY(1rem);
-      -webkit-transition: .5s all;
-      transition: .5s all;
-      -webkit-transition-delay: .5s;
-              transition-delay: .5s; }
+      padding-left: 1rem; }
       .map-main__item:nth-child(1) {
         left: 50%;
         top: 20.5%; }
@@ -686,11 +663,8 @@ body {
           -ms-flex-align: center;
               align-items: center;
       gap: 1.3rem;
-      cursor: pointer;
       -webkit-transition: .6s all;
       transition: .6s all; }
-      .map-info__item:hover, .map-info__item.current {
-        background: #F7F7F7; }
       .map-info__item:last-child {
         margin-bottom: 0; }
     .map-info__ico {
@@ -1400,17 +1374,13 @@ body {
     .about__text p {
       margin-bottom: 1rem; }
 
-  .map-main__item:nth-child(4) {
-    left: 26%; }
-  .map-main__item:nth-child(2) {
-    top: 66%; }
-  .map-main__item:nth-child(6) {
-    top: 25%; }
-  .map-main__svg .logo {
-    -webkit-transform: scale(2) translate(-18%, -24%);
-            transform: scale(2) translate(-18%, -24%);
-    -webkit-animation: none;
-            animation: none; }
+  .map-main {
+    overflow: auto;
+    height: auto; }
+    .map-main__wrap {
+      width: 45rem;
+      height: 37.5rem;
+      position: relative; }
   .map-info {
     padding: 2rem 1rem;
     gap: 2rem; }

@@ -66,9 +66,9 @@ class Landing extends Resource
             new Panel('Слайдер', [
                 Images::make('Слайдер', MediaCollection::getByCollection(MediaCollection::SLIDER))
                     ->customPropertiesFields([
-                        Text::make('Заголовок ', 'title'),
-                        Text::make('Подзаголовок ', 'subtitle'),
-                        Textarea::make('Текст ', 'description'),
+                        Text::make('Заголовок', 'title'),
+                        Text::make('Подзаголовок', 'subtitle'),
+                        Textarea::make('Текст', 'description'),
                     ])
             ]),
 
@@ -91,6 +91,7 @@ class Landing extends Resource
             ]),
 
             new Panel('Галлерея ', [
+                Text::make('Заголовок', 'data->gallery->title'),
                 Images::make('Галлерея', MediaCollection::getByCollection(MediaCollection::GALLERY))
             ]),
 
@@ -98,17 +99,17 @@ class Landing extends Resource
             new Panel('Планировки ', [
                 Images::make('Планировки', MediaCollection::getByCollection(MediaCollection::LAYOUTS))
                     ->customPropertiesFields([
-                        Text::make('Кол-во спален', 'data->bedrooms'),
-                        Text::make('Площадь', 'data->area'),
-                        Text::make('Этаж', 'data->floor'),
+                        Text::make('Кол-во спален', 'bedrooms'),
+                        Text::make('Площадь', 'area'),
+                        Text::make('Этаж', 'floor'),
                     ])
             ]),
 
             new Panel('Информация о застройщике ', [
                 Text::make('Заголовок ', 'data->builder->title'),
                 Text::make('Подзаголовок ', 'data->builder->subtitle'),
-                Textarea::make('Описание ', 'data->builder->subtitle'),
-                Images::make('Видео', MediaCollection::getByCollection(MediaCollection::BUILDER_VIDEO))
+                Textarea::make('Описание ', 'data->builder->description'),
+                Files::make('Видео', MediaCollection::getByCollection(MediaCollection::BUILDER_VIDEO))
             ]),
 
             new Panel('План оплат', [

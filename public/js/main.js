@@ -115,22 +115,6 @@ $(window).on('load', () => {
 
 
 
-    //________MAP_________
-
-    $('.map-info__item').click(function() {
-        let index = $(this).index()
-        $('.map-info__item').removeClass('current')
-        $(this).addClass('current')
-        $('.marker').removeClass('show')
-        $('.road').removeClass('show')
-        $('.map-main__item').removeClass('show')
-        $(`.marker-${index+1}`).addClass('show')
-        $(`.road-${index+1}`).addClass('show')
-        $('.map-main__item').eq(index).addClass('show')
-    })
-
-    $('.map-info__item').eq(0).click()
-
 
     //________GALLERY__________
 
