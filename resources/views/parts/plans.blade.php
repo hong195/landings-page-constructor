@@ -23,8 +23,8 @@
                             @foreach($plans as $bedroom => $plan)
                                 @foreach($plan as $info)
                                     <li data-name="{{ $landing->name }}"
-                                        data-square="{{ $info['area'] }}"
-                                        data-floor="{{ $info['floor'] }}">
+                                        data-square="{{ data_get($info, 'area') }}"
+                                        data-floor="{{ data_get($info, 'floor') }}">
                                         <img src="{{ $info['url'] }}" alt="{{ $landing->name }}">
                                     </li>
                                 @endforeach
@@ -38,9 +38,9 @@
 
                                 @foreach($plan as $info)
                                     <li data-name="{{ $landing->name }}"
-                                        data-square="{{ $info['area'] }}"
-                                        data-floor="{{ $info['floor'] }}">
-                                        <img src="{{ $info['url'] }}" alt="{{ $landing->name }}">
+                                        data-square="{{ data_get($info, 'area') }}"
+                                        data-floor="{{ data_get($info, 'floor') }}">
+                                        <img src="{{ data_get($info, 'url') }}" alt="{{ $landing->name }}">
                                     </li>
                                 @endforeach
                             </ul>

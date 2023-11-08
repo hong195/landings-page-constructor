@@ -11,18 +11,18 @@
                     <div class="footer-form form">
                         <div class="form-input">
                             <div class="form-input__input">
-                                <input type="text" name="name" placeholder="Имя" class="form_name">
+                                <input type="text" name="name" placeholder="{{ trans('landings.name') }}" class="form_name">
                             </div>
                             <div class="form-input__error">
-                                {{ trans('landings.Ошибка! Данные введены неверно') }}
+                                {{ trans('landings.wrong_data') }}
                             </div>
                         </div>
                         <div class="form-input">
                             <div class="form-input__input">
-                                <input type="tel" name="phone"placeholder="Номер телефона" class="form_tel">
+                                <input type="tel" name="phone"placeholder="{{ trans('landings.phone') }}" class="form_tel">
                             </div>
                             <div class="form-input__error">
-                                {{ trans('landings.Ошибка! Данные введены неверно') }}
+                                {{ trans('landings.wrong_data') }}
                             </div>
                         </div>
                         <div class="form-input">

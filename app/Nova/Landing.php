@@ -86,7 +86,7 @@ class Landing extends Resource
 
                 Images::make('Иконки', MediaCollection::getByCollection(MediaCollection::ADVANTAGES_ICON))
                     ->customPropertiesFields([
-                        Text::make('Текст', 'text'),
+                        Text::make('Текст', 'text')->rules('required'),
                     ])
             ]),
 
@@ -99,9 +99,9 @@ class Landing extends Resource
             new Panel('Планировки ', [
                 Images::make('Планировки', MediaCollection::getByCollection(MediaCollection::LAYOUTS))
                     ->customPropertiesFields([
-                        Text::make('Кол-во спален', 'bedrooms'),
-                        Text::make('Площадь', 'area'),
-                        Text::make('Этаж', 'floor'),
+                        Text::make('Кол-во спален', 'bedrooms')->rules('required'),
+                        Text::make('Площадь', 'area')->rules('required'),
+                        Text::make('Этаж', 'floor')->rules('required'),
                     ])
             ]),
 
@@ -114,10 +114,10 @@ class Landing extends Resource
 
             new Panel('План оплат', [
                 SimpleRepeatable::make('План оплат', 'data->payment_plan' , [
-                    Text::make('Этап', 'step'),
-                    Number::make('%', 'percent'),
-                    Text::make('Дата', 'date'),
-                    Text::make('AED', 'price'),
+                    Text::make('Этап', 'step')->rules('required'),
+                    Number::make('%', 'percent')->rules('required'),
+                    Text::make('Дата', 'date')->rules('required'),
+                    Text::make('AED', 'price')->rules('required'),
                 ])
             ]),
         ];

@@ -1,15 +1,19 @@
 <section class="developer">
     <div class="container">
         <h2 class="section-title">
-            <span class="wow fadeInUp" data-wow-delay=".3s">{{ $landing->data['builder']['title'] }}</span>
-            <strong class="wow fadeInUp" data-wow-delay=".5s">{{ $landing->data['builder']['subtitle'] }}</strong>
+            @if($title = data_get($landing->data, 'builder.title'))
+                <span class="wow fadeInUp" data-wow-delay=".3s">{{ $title }}</span>
+            @endif
+
+            @if($subtitle = data_get($landing->data, 'builder.subtitle'))
+                <strong class="wow fadeInUp" data-wow-delay=".5s">{{ $subtitle }}</strong>
+            @endif
         </h2>
-        @if(array_key_exists('description', $landing->data['builder']))
+        @if($description = data_get($landing->data, 'builder.description'))
             <div class="developer__text">
-                {{ $landing->data['builder']['description'] }}
+                {!! $description !!}
             </div>
         @endif
-
     </div>
     <div class="developer__video">
         <video src="{{ $builderVideo }}" pip="false"

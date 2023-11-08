@@ -3,18 +3,26 @@
     @foreach($slides as $slide)
         <div class="header-slide__item">
             <div class="container">
-                <div class="header-slide__bg">
-                    <img src="{{ $slide['url'] }}" alt="{{ $slide['title'] }}">
-                </div>
+                @if($image = data_get($slide, 'url'))
+                    <div class="header-slide__bg">
+                        <img src="{{ $image }}" alt="{{ data_get($slide, 'title') }}">
+                    </div>
+                @endif
+
                 <div class="header-slide__content">
-                    <h2 class="header-slide__title">
-                        <span>{{ $slide['title'] }}</span>
-                        <strong> {{ $slide['subtitle'] }} </strong>
-                    </h2>
+                    @if($title = data_get($slide, 'title'))
+                        <h2 class="header-slide__title">
+                            <span>{{ $title }}</span>
+                            <strong> {{ data_get($slide, 'subtitle') }} </strong>
+                        </h2>
+                    @endif
+
                     <div class="header-slide__wrap">
-                        <div class="header-slide__text">
-                            {{ $slide['description'] }}
-                        </div>
+                        @if($description = data_get($slide, 'description'))
+                            <div class="header-slide__text">
+                                {{ $description }}
+                            </div>
+                        @endif
                         <a href="#plans" class="header-slide__btn gotoPlans">
                             <img src="{{ asset('img/icons/arc.svg') }}" alt="ico">
                             <span style="text-transform: uppercase;">{{ trans('landings.find_flat') }}</span>

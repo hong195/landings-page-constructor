@@ -1,9 +1,9 @@
 <section class="gallery">
     <div class="container">
         <div class="gallery-content">
-            @if(array_key_exists('gallery', $landing->data))
+            @if($title = data_get($landing->data, 'gallery.title'))
                 <h2 class="gallery__title wow fadeInUp" data-wow-delay=".3s">
-                    {{ $landing->data['gallery']['title'] }}
+                    {{ $title }}
                 </h2>
             @endif
             <a href="#plans" class="gallery__btn btn gotoPlans wow fadeInUp" data-wow-delay=".5s">
@@ -15,11 +15,13 @@
         </div>
         <div class="gallery-main">
             @foreach($gallery as $image)
-                <a href="{{ $image['url'] }}" data-fancybox="gallery" class="gallery-item">
-                    <div class="gallery-item__wrap">
-                        <img src="{{ $image['url'] }}" alt="gallery">
-                    </div>
-                </a>
+                @if ($url = data_get($image, 'url'))
+                    <a href="{{ $url }}" data-fancybox="gallery" class="gallery-item">
+                        <div class="gallery-item__wrap">
+                            <img src="{{ $url }}" alt="gallery">
+                        </div>
+                    </a>
+                @endif
             @endforeach
         </div>
     </div>
