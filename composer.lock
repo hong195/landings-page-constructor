@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "91d55980a67f56c4534755aa00e3c42a",
+    "content-hash": "527027d796a795209d0c080ec54aeedf",
     "packages": [
         {
             "name": "badinansoft/nova-language-switch",
@@ -177,6 +177,55 @@
                 }
             ],
             "time": "2023-09-23T21:17:11+00:00"
+        },
+        {
+            "name": "brick/varexporter",
+            "version": "0.3.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/brick/varexporter.git",
+                "reference": "b5853edea6204ff8fa10633c3a4cccc4058410ed"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/brick/varexporter/zipball/b5853edea6204ff8fa10633c3a4cccc4058410ed",
+                "reference": "b5853edea6204ff8fa10633c3a4cccc4058410ed",
+                "shasum": ""
+            },
+            "require": {
+                "nikic/php-parser": "^4.0",
+                "php": "^7.2 || ^8.0"
+            },
+            "require-dev": {
+                "php-coveralls/php-coveralls": "^2.2",
+                "phpunit/phpunit": "^8.5 || ^9.0",
+                "vimeo/psalm": "4.23.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Brick\\VarExporter\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A powerful alternative to var_export(), which can export closures and objects without __set_state()",
+            "keywords": [
+                "var_export"
+            ],
+            "support": {
+                "issues": "https://github.com/brick/varexporter/issues",
+                "source": "https://github.com/brick/varexporter/tree/0.3.8"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/BenMorel",
+                    "type": "github"
+                }
+            ],
+            "time": "2023-01-21T23:05:38+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
@@ -4763,6 +4812,132 @@
                 }
             ],
             "time": "2023-09-25T07:13:36+00:00"
+        },
+        {
+            "name": "statikbe/laravel-chained-translator",
+            "version": "2.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/statikbe/laravel-chained-translator.git",
+                "reference": "1256ee84516ce22ed1134d51fe40e7c8beaadb1c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/statikbe/laravel-chained-translator/zipball/1256ee84516ce22ed1134d51fe40e7c8beaadb1c",
+                "reference": "1256ee84516ce22ed1134d51fe40e7c8beaadb1c",
+                "shasum": ""
+            },
+            "require": {
+                "brick/varexporter": "^0.3.5",
+                "laravel/framework": "^9.0|^10.0",
+                "php": "^8.0|^8.1|^8.2"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Statikbe\\LaravelChainedTranslator\\TranslationServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/Helpers/helpers.php"
+                ],
+                "psr-4": {
+                    "Statikbe\\LaravelChainedTranslator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kobe Christiaensen",
+                    "email": "kobe@statik.be"
+                },
+                {
+                    "name": "Sten Govaerts",
+                    "email": "sten@statik.be"
+                },
+                {
+                    "name": "Johan Maes",
+                    "email": "johan@statik.be"
+                },
+                {
+                    "name": "Kayalion"
+                }
+            ],
+            "description": "The Laravel Chained Translator can combine several translators that can override each others translations.",
+            "keywords": [
+                "Chain",
+                "chained",
+                "content manager",
+                "custom",
+                "customer",
+                "laravel",
+                "statik",
+                "statikbe",
+                "translations"
+            ],
+            "support": {
+                "issues": "https://github.com/statikbe/laravel-chained-translator/issues",
+                "source": "https://github.com/statikbe/laravel-chained-translator/tree/2.2.1"
+            },
+            "time": "2023-04-28T13:15:25+00:00"
+        },
+        {
+            "name": "statikbe/laravel-nova-chained-translation-manager",
+            "version": "v3.0.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/statikbe/laravel-nova-chained-translation-manager.git",
+                "reference": "43a42ccf5e7284878c6431f513e14df7a5dd3965"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/statikbe/laravel-nova-chained-translation-manager/zipball/43a42ccf5e7284878c6431f513e14df7a5dd3965",
+                "reference": "43a42ccf5e7284878c6431f513e14df7a5dd3965",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/validation": "^8.0|^9.0|^10.0",
+                "laravel/nova": "^4.0",
+                "php": "^8.0|^8.1|^8.2",
+                "statikbe/laravel-chained-translator": "^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Statikbe\\NovaTranslationManager\\ToolServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Statikbe\\NovaTranslationManager\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "The Laravel Nova Chained Translation Manager allows you to easily edit and customise the translations of your current Laravel environment.",
+            "keywords": [
+                "chained translator",
+                "i18n",
+                "internationalization",
+                "laravel",
+                "nova",
+                "translation"
+            ],
+            "support": {
+                "issues": "https://github.com/statikbe/laravel-nova-chained-translation-manager/issues",
+                "source": "https://github.com/statikbe/laravel-nova-chained-translation-manager/tree/v3.0.8"
+            },
+            "time": "2023-05-03T08:04:34+00:00"
         },
         {
             "name": "symfony/console",
@@ -9823,5 +9998,5 @@
         "php": "^8.1"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.6.0"
 }
