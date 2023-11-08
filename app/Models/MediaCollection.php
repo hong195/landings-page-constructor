@@ -16,4 +16,11 @@ enum MediaCollection : string
     case LAYOUTS = 'layouts';
 
     case BUILDER_VIDEO = 'builder_video';
+
+    public static function getByCollection(self $case): string
+    {
+        $currentLocale = app()->getLocale();
+
+        return "{$case->value}_{$currentLocale}";
+    }
 }
