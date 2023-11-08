@@ -3,9 +3,11 @@
 namespace App\Nova;
 
 use App\Models\MediaCollection;
+use Ebess\AdvancedNovaMediaLibrary\Fields\Files;
 use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
 use Laravel\Nova\Fields\Email;
 use Laravel\Nova\Fields\File;
+use Laravel\Nova\Fields\Hidden;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
@@ -57,8 +59,12 @@ class Landing extends Resource
                 Text::make('Телефон', 'data->phone')->rules('required'),
             ]),
 
+            Hidden::make('lang')->default(function () {
+                return app()->getLocale();
+            }),
+
             new Panel('Слайдер', [
-                Images::make('Слайдер', MediaCollection::SLIDER->value)
+                Images::make('Слайдер', MediaCollection::getByCollection(MediaCollection::SLIDER))
                     ->customPropertiesFields([
                         Text::make('Заголовок ', 'title'),
                         Text::make('Подзаголовок ', 'subtitle'),
@@ -70,27 +76,27 @@ class Landing extends Resource
                 Text::make('Заголовок ', 'data->about_us->title'),
                 Text::make('Подзаголовок ', 'data->about_us->subtitle'),
                 Textarea::make('Текст ', 'data->about_us->description'),
-                File::make('Брошюра', 'data->about_us->file')->disk('public'),
+                Files::make('Брошюра', MediaCollection::getByCollection(MediaCollection::BROCHURE)),
             ]),
 
             new Panel('Список преимуществ', [
                 Text::make('Заголовок ', 'data->advantages->title'),
                 Text::make('Подзаголовок ', 'data->advantages->subtitle'),
-                Images::make('Картинка', MediaCollection::ADVANTAGE_IMAGE->value),
+                Images::make('Картинка', MediaCollection::getByCollection(MediaCollection::ADVANTAGE_IMAGE)),
 
-                Images::make('Иконки', MediaCollection::ADVANTAGES_ICON->value)
+                Images::make('Иконки', MediaCollection::getByCollection(MediaCollection::ADVANTAGES_ICON))
                     ->customPropertiesFields([
                         Text::make('Текст', 'text'),
                     ])
             ]),
 
             new Panel('Галлерея ', [
-                Images::make('Галлерея', MediaCollection::GALLERY->value)
+                Images::make('Галлерея', MediaCollection::getByCollection(MediaCollection::GALLERY))
             ]),
 
 
             new Panel('Планировки ', [
-                Images::make('Планировки', MediaCollection::LAYOUTS->value)
+                Images::make('Планировки', MediaCollection::getByCollection(MediaCollection::LAYOUTS))
                     ->customPropertiesFields([
                         Text::make('Кол-во спален', 'data->bedrooms'),
                         Text::make('Площадь', 'data->area'),
@@ -102,7 +108,7 @@ class Landing extends Resource
                 Text::make('Заголовок ', 'data->builder->title'),
                 Text::make('Подзаголовок ', 'data->builder->subtitle'),
                 Textarea::make('Описание ', 'data->builder->subtitle'),
-                Images::make('Видео', MediaCollection::BUILDER_VIDEO->value)
+                Images::make('Видео', MediaCollection::getByCollection(MediaCollection::BUILDER_VIDEO))
             ]),
 
             new Panel('План оплат', [
@@ -116,6 +122,10 @@ class Landing extends Resource
         ];
     }
 
+    public static function indexQuery(NovaRequest $request, $query): \Illuminate\Database\Eloquent\Builder
+    {
+        return $query->where('lang', app()->getLocale());
+    }
     /**
      * Get the cards available for the request.
      *

@@ -9,6 +9,7 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 class Landing extends Model implements HasMedia
 {
     use InteractsWithMedia;
+
     protected $fillable = [
         'name',
         'domain',
@@ -19,11 +20,19 @@ class Landing extends Model implements HasMedia
         'data' => 'array',
     ];
 
-    public function registerMediaCollections() : void
+    public function registerMediaCollections(): void
     {
-        $availableLocales = config('app.available_locales');
+        $availableLocales = config('nova-language-switch.supported-languages');
+
         foreach (MediaCollection::cases() as $case) {
-            foreach ($availableLocales as $locale) {
+            foreach ($availableLocales as $locale => $name) {
+
+                if (in_array($case->value, [MediaCollection::BUILDER_VIDEO->value,
+                    MediaCollection::LOGO->value, MediaCollection::BROCHURE->value])) {
+                    $this->addMediaCollection("{$case->value}_{$locale}")->singleFile();
+                    continue;
+                }
+
                 $this->addMediaCollection("{$case->value}_{$locale}");
             }
         }
