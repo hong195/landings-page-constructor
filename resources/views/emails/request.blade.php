@@ -1,3 +1,3 @@
-<div>Имя {{ $data['name'] }}</div>
-<div>Телефон {{ $data['phone'] }}</div>
-<div>Количество спален {{ $data['type'] }}</div>
+<div>{{ trans('landings.name') }} {{ $data['name'] }}</div>
+<div>{{ trans('landings.phone') }} Телефон {{ $data['phone'] }}</div>
+<div>{{ trans('landings.bedrooms_count') }} {{ $data['type'] }}</div>

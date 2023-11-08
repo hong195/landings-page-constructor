@@ -1,14 +1,14 @@
 <section class="pay">
     <div class="container">
         <h2 class="section-title wow fadeInUp" data-wow-delay=".3s">
-            План оплат
+            {{ trans('landings.payment_plan') }}
         </h2>
         <div class="pay-table__wrap">
             <div class="pay-table">
                 <div class="pay-table__head">
-                    <div>Этап</div>
+                    <div>{{ trans('landings.step') }}</div>
                     <div>%</div>
-                    <div>Дата</div>
+                    <div>{{ trans('landings.date') }}</div>
                     <div>AED</div>
                 </div>
 

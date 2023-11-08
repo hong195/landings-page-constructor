@@ -38,7 +38,7 @@
                     </div>
                 </div>
                 <a href="#footer" class="header-top__btn btn">
-                    <span>Связаться<span> с нами</span></span>
+                    <span>{{ trans('landings.call') }}<span>{{ trans('landings.with_us') }}</span></span>
                     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M1 17L17 1M17 1H4.2M17 1V13.8" stroke="currentColor" stroke-width="2"
                               stroke-linecap="round" stroke-linejoin="round"/>

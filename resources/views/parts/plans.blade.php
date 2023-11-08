@@ -1,16 +1,16 @@
 <section class="plans" id="plans">
     <div class="container">
         <h2 class="section-title wow fadeInUp" data-wow-delay=".3s">
-            Типы планировок
+            {{ trans('landings.types') }}
         </h2>
         <div class="plans__subtitle">
-            Количество спален
+            {{ trans('landings.bedrooms_count') }}
         </div>
         <div class="plans-wrap">
             <div class="plans-choose">
                 <ul class="plans-choose__list">
                     <li class="current">
-                        Все
+                        {{ trans('landings.all') }}
                     </li>
                     @foreach($plans as $bedroom => $plan)
                         <li>{{ $bedroom }}</li>
@@ -57,7 +57,7 @@
                     <li class="plans-main__item">
                         <div class="plans-main__wrap">
                             <div class="plans-main__name">
-                                Проект
+                                {{ trans('landings.project') }}
                             </div>
                             <div class="plans-main__value plans-main__project"></div>
                         </div>
@@ -65,7 +65,7 @@
                     <li class="plans-main__item">
                         <div class="plans-main__wrap">
                             <div class="plans-main__name">
-                                Площадь
+                                {{ trans('landings.area') }}
                             </div>
                             <div class="plans-main__value plans-main__square">
                                 <span></span> м2
@@ -75,7 +75,7 @@
                     <li class="plans-main__item">
                         <div class="plans-main__wrap">
                             <div class="plans-main__name">
-                                Этаж
+                                {{ trans('landings.floor') }}
                             </div>
                             <div class="plans-main__value plans-main__floor"></div>
                         </div>

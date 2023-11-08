@@ -17,7 +17,7 @@
                         </div>
                         <a href="#plans" class="header-slide__btn gotoPlans">
                             <img src="{{ asset('img/icons/arc.svg') }}" alt="ico">
-                            <span>ПОДОБРАТЬ КВАРТИРУ</span>
+                            <span style="text-transform: uppercase;">{{ trans('landings.find_flat') }}</span>
                             <img src="{{ asset('img/icons/arrow-right.svg') }}" alt="ico">
                         </a>
                     </div>
@@ -30,12 +30,12 @@
 @if ($slides->count() > 0)
     <div class="header-nav">
                 <span class="header-nav__arrow arrow-left">
-                    <img src="img/icons/chevron-left.svg" alt="ico">
+                    <img src="{{ asset('img/icons/chevron-left.svg') }}" alt="ico">
                 </span>
         <ul class="header-nav__buttons">
         </ul>
         <span class="header-nav__arrow arrow-right">
-                    <img src="img/icons/chevron-right.svg" alt="ico">
+                    <img src="{{ asset('img/icons/chevron-right.svg') }}" alt="ico">
                 </span>
     </div>
 @endif
