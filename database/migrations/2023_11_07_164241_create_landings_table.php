@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('domain')->nullable();
             $table->json('data')->nullable();
+            $table->string('lang')->nullable();
             $table->timestamps();
         });
     }
