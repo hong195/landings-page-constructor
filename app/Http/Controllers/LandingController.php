@@ -15,6 +15,10 @@ class LandingController extends Controller
         /** @var Landing $landing */
         $landing = Landing::whereLang(\app()->getLocale())->first();
 
+        if (!$landing) {
+            abort(404);
+        }
+
         return view('landing', [
             'landing' => $landing,
             'slides' => MediaService::getSliderData($landing),
@@ -23,6 +27,14 @@ class LandingController extends Controller
             'gallery' => MediaService::getGallery($landing),
             'plans' => MediaService::getPlans($landing),
             'builderVideo' => MediaService::getBuilderVideo($landing),
+            'availableLanguages' => $this->getLocales(),
         ]);
+    }
+
+    private function getLocales(): array
+    {
+        return array_filter(array_keys(config('nova-language-switch.supported-languages')), function($locale) {
+            return $locale !== \app()->getLocale();
+        });
     }
 }

@@ -23,8 +23,8 @@
                 </a>
                 <div class="header-lang">
                     <div class="header-lang__btn">
-                        <div>
-                            RU
+                        <div style="text-transform: uppercase;">
+                            {{ app()->getLocale() }}
                         </div>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path opacity="0.8" d="M6.00049 9L12.0005 15L18.0005 9" stroke="white" stroke-width="2"
@@ -32,7 +32,9 @@
                         </svg>
                     </div>
                     <div class="header-lang__list">
-                        <a href="#">EN</a>
+                        @foreach($availableLanguages as $locale)
+                            <a href="{{ route('switch-lang', ['lang' => $locale]) }}">{{ $locale }}</a>
+                        @endforeach
                     </div>
                 </div>
                 <a href="#footer" class="header-top__btn btn">
