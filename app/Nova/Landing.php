@@ -44,7 +44,7 @@ class Landing extends Resource
     /**
      * Get the fields displayed by the resource.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param \Laravel\Nova\Http\Requests\NovaRequest $request
      * @return array
      */
     public function fields(NovaRequest $request)
@@ -70,29 +70,38 @@ class Landing extends Resource
                         Text::make('Подзаголовок', 'subtitle'),
                         Textarea::make('Текст', 'description'),
                     ])
+                    ->hideFromIndex()
             ]),
 
             new Panel('О нас', [
-                Text::make('Заголовок ', 'data->about_us->title'),
-                Text::make('Подзаголовок ', 'data->about_us->subtitle'),
-                Textarea::make('Текст ', 'data->about_us->description'),
-                Files::make('Брошюра', MediaCollection::getByCollection(MediaCollection::BROCHURE)),
+                Text::make('Заголовок ', 'data->about_us->title')
+                    ->hideFromIndex(),
+                Text::make('Подзаголовок ', 'data->about_us->subtitle')
+                    ->hideFromIndex(),
+                Textarea::make('Текст ', 'data->about_us->description')
+                    ->hideFromIndex(),
+                Files::make('Брошюра', MediaCollection::getByCollection(MediaCollection::BROCHURE))
+                    ->hideFromIndex(),
             ]),
 
             new Panel('Список преимуществ', [
-                Text::make('Заголовок ', 'data->advantages->title'),
-                Text::make('Подзаголовок ', 'data->advantages->subtitle'),
-                Images::make('Картинка', MediaCollection::getByCollection(MediaCollection::ADVANTAGE_IMAGE)),
+                Text::make('Заголовок ', 'data->advantages->title')
+                    ->hideFromIndex(),
+                Text::make('Подзаголовок ', 'data->advantages->subtitle')
+                    ->hideFromIndex(),
+                Images::make('Картинка', MediaCollection::getByCollection(MediaCollection::ADVANTAGE_IMAGE))
+                    ->hideFromIndex(),
 
                 Images::make('Иконки', MediaCollection::getByCollection(MediaCollection::ADVANTAGES_ICON))
                     ->customPropertiesFields([
                         Text::make('Текст', 'text')->rules('required'),
                     ])
+                    ->hideFromIndex()
             ]),
 
             new Panel('Галлерея ', [
-                Text::make('Заголовок', 'data->gallery->title'),
-                Images::make('Галлерея', MediaCollection::getByCollection(MediaCollection::GALLERY))
+                Text::make('Заголовок', 'data->gallery->title')->hideFromIndex(),
+                Images::make('Галлерея', MediaCollection::getByCollection(MediaCollection::GALLERY))->hideFromIndex()
             ]),
 
 
@@ -103,21 +112,30 @@ class Landing extends Resource
                         Text::make('Площадь', 'area')->rules('required'),
                         Text::make('Этаж', 'floor')->rules('required'),
                     ])
+                    ->hideFromIndex()
             ]),
 
             new Panel('Информация о застройщике ', [
-                Text::make('Заголовок ', 'data->builder->title'),
-                Text::make('Подзаголовок ', 'data->builder->subtitle'),
-                Textarea::make('Описание ', 'data->builder->description'),
+                Text::make('Заголовок ', 'data->builder->title')
+                    ->hideFromIndex(),
+                Text::make('Подзаголовок ', 'data->builder->subtitle')
+                    ->hideFromIndex(),
+                Textarea::make('Описание ', 'data->builder->description')
+                    ->hideFromIndex(),
                 Files::make('Видео', MediaCollection::getByCollection(MediaCollection::BUILDER_VIDEO))
+                    ->hideFromIndex()
             ]),
 
             new Panel('План оплат', [
-                SimpleRepeatable::make('План оплат', 'data->payment_plan' , [
-                    Text::make('Этап', 'step')->rules('required'),
-                    Number::make('%', 'percent')->rules('required'),
-                    Text::make('Дата', 'date')->rules('required'),
-                    Text::make('AED', 'price')->rules('required'),
+                SimpleRepeatable::make('План оплат', 'data->payment_plan', [
+                    Text::make('Этап', 'step')->rules('required')
+                        ->hideFromIndex(),
+                    Number::make('%', 'percent')->rules('required')
+                        ->hideFromIndex(),
+                    Text::make('Дата', 'date')->rules('required')
+                        ->hideFromIndex(),
+                    Text::make('AED', 'price')->rules('required')
+                        ->hideFromIndex(),
                 ])
             ]),
         ];
@@ -127,10 +145,11 @@ class Landing extends Resource
     {
         return $query->where('lang', app()->getLocale());
     }
+
     /**
      * Get the cards available for the request.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param \Laravel\Nova\Http\Requests\NovaRequest $request
      * @return array
      */
     public function cards(NovaRequest $request)
@@ -141,7 +160,7 @@ class Landing extends Resource
     /**
      * Get the filters available for the resource.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param \Laravel\Nova\Http\Requests\NovaRequest $request
      * @return array
      */
     public function filters(NovaRequest $request)
@@ -152,7 +171,7 @@ class Landing extends Resource
     /**
      * Get the lenses available for the resource.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param \Laravel\Nova\Http\Requests\NovaRequest $request
      * @return array
      */
     public function lenses(NovaRequest $request)
@@ -163,7 +182,7 @@ class Landing extends Resource
     /**
      * Get the actions available for the resource.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param \Laravel\Nova\Http\Requests\NovaRequest $request
      * @return array
      */
     public function actions(NovaRequest $request)
