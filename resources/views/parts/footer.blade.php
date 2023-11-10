@@ -6,7 +6,7 @@
                     <span class="wow fadeInUp" data-wow-delay=".3s">{{ trans('landings.leave_request') }}</span>
                     <strong class="wow fadeInUp" data-wow-delay=".5s">{{ trans('landings.we_call_you') }}</strong>
                 </h2>
-                <form method="POST" action="{{ route('sendMail') }}">
+                <form method="POST" action="{{ route('applications.store') }}">
                     @csrf
                     <div class="footer-form form">
                         <div class="form-input">

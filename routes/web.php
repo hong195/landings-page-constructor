@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\LanguageController;
 use Illuminate\Support\Facades\Route;
@@ -17,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [\App\Http\Controllers\LandingController::class, 'index'])->name('landing');
 
-Route::post('send-email', [EmailController::class, 'send'])->name('sendMail');
+Route::post('applications', [ApplicationController::class, 'store'])->name('applications.store');
 
 Route::get('lang/{lang}', [LanguageController::class, 'switchLang'])->name('switch-lang');
 
