@@ -6,7 +6,6 @@ use App\Models\MediaCollection;
 use Ebess\AdvancedNovaMediaLibrary\Fields\Files;
 use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
 use Laravel\Nova\Fields\Email;
-use Laravel\Nova\Fields\File;
 use Laravel\Nova\Fields\Hidden;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Number;
@@ -57,6 +56,7 @@ class Landing extends Resource
                 Text::make('Домен', 'domain')->rules('required'),
                 Email::make('Адрес электронной почты', 'data->email')->rules('required'),
                 Text::make('Телефон', 'data->phone')->rules('required'),
+                Files::make('Favicon', MediaCollection::getByCollection(MediaCollection::FAVICON)),
             ]),
 
             Hidden::make('lang')->default(function () {

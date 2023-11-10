@@ -7,6 +7,13 @@ use App\Models\MediaCollection;
 
 class MediaService
 {
+    public static function getFavicon(Landing $landing): ?string
+    {
+        $favicon = $landing?->getFirstMedia(MediaCollection::getByCollection(MediaCollection::FAVICON));
+
+        return $favicon?->getFullUrl();
+    }
+
     public static function getSliderData(Landing $landing)
     {
         $images = $landing->getMedia(MediaCollection::getByCollection(MediaCollection::SLIDER));

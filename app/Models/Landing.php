@@ -29,7 +29,7 @@ class Landing extends Model implements HasMedia
             foreach ($availableLocales as $locale => $name) {
 
                 if (in_array($case->value, [MediaCollection::BUILDER_VIDEO->value,
-                    MediaCollection::LOGO->value, MediaCollection::BROCHURE->value])) {
+                    MediaCollection::LOGO->value, MediaCollection::BROCHURE->value, MediaCollection::FAVICON->value])) {
                     $this->addMediaCollection("{$case->value}_{$locale}")->singleFile();
                     continue;
                 }

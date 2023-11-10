@@ -6,6 +6,8 @@ enum MediaCollection : string
 {
     case LOGO = 'logo';
 
+    case FAVICON = 'favicon';
+
     case SLIDER = 'slider';
 
     case ADVANTAGES_ICON = 'advantages_icon';

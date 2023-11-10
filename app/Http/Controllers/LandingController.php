@@ -21,6 +21,7 @@ class LandingController extends Controller
 
         return view('landing', [
             'landing' => $landing,
+            'favicon' => MediaService::getFavicon($landing),
             'slides' => MediaService::getSliderData($landing),
             'brochure' => MediaService::getAboutUsData($landing),
             'advantages' => MediaService::getAdvantages($landing),
