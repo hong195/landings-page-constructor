@@ -42,7 +42,7 @@
                         </div>
                         <div class="map-main__info">
                             <img src="img/icons/car.svg" alt="ico">
-                            <span>13.8 км | 17 мин</span>
+                            <span>{{ trans('landings.map.distance.first') }}</span>
                         </div>
                     </div>
                     <div class="map-main__item">
@@ -51,7 +51,7 @@
                         </div>
                         <div class="map-main__info">
                             <img src="img/icons/car.svg" alt="ico">
-                            <span>16.9 км | 21 мин</span>
+                            <span>{{ trans('landings.map.distance.second') }}</span>
                         </div>
                     </div>
                     <div class="map-main__item">
@@ -60,7 +60,7 @@
                         </div>
                         <div class="map-main__info">
                             <img src="img/icons/car.svg" alt="ico">
-                            <span>10.9 км | 14 мин</span>
+                            <span>{{ trans('landings.map.distance.third') }}</span>
                         </div>
                     </div>
                     <div class="map-main__item">
@@ -69,7 +69,7 @@
                         </div>
                         <div class="map-main__info">
                             <img src="img/icons/car.svg" alt="ico">
-                            <span>25.2 км | 22 мин</span>
+                            <span>{{ trans('landings.map.distance.fourth') }}</span>
                         </div>
                     </div>
                     <div class="map-main__item">
@@ -78,7 +78,7 @@
                         </div>
                         <div class="map-main__info">
                             <img src="img/icons/car.svg" alt="ico">
-                            <span>7.5 км | 11 мин</span>
+                            <span>{{ trans('landings.map.distance.fifth') }}</span>
                         </div>
                     </div>
                     <div class="map-main__item">
@@ -87,7 +87,7 @@
                         </div>
                         <div class="map-main__info">
                             <img src="img/icons/car.svg" alt="ico">
-                            <span>11.3 км | 18 мин</span>
+                            <span>{{ trans('landings.map.distance.sixth') }}</span>
                         </div>
                     </div>
                 </ul>
@@ -95,7 +95,7 @@
         </div>
         <div class="map-info">
             <div class="map-info__title wow fadeInUp" data-wow-delay=".3s">
-                Карта проекта
+                {{ trans('landings.map.title') }}
             </div>
             <div class="map-info__list">
                 <div class="map-info__item">
@@ -107,7 +107,7 @@
                             Burj Khalifa
                         </div>
                         <div class="map-info__desc">
-                            17 минут до локации
+                            {{ trans('landings.map.time.first') }}
                         </div>
                     </div>
                 </div>
@@ -120,7 +120,7 @@
                             Dubai Marina
                         </div>
                         <div class="map-info__desc">
-                            21 минута до локации
+                            {{ trans('landings.map.time.second') }}
                         </div>
                     </div>
                 </div>
@@ -133,7 +133,7 @@
                             Business Bay
                         </div>
                         <div class="map-info__desc">
-                            14 минут до локации
+                            {{ trans('landings.map.time.third') }}
                         </div>
                     </div>
                 </div>
@@ -146,7 +146,7 @@
                             International Airport
                         </div>
                         <div class="map-info__desc">
-                            22 минуты до локации
+                            {{ trans('landings.map.time.fourth') }}
                         </div>
                     </div>
                 </div>
@@ -159,7 +159,7 @@
                             Dubai Miracle Garden
                         </div>
                         <div class="map-info__desc">
-                            11 минут до локации
+                            {{ trans('landings.map.time.fifth') }}
                         </div>
                     </div>
                 </div>
@@ -172,7 +172,7 @@
                             Burj Al Arab
                         </div>
                         <div class="map-info__desc">
-                            18 минут до локации
+                            {{ trans('landings.map.time.sixth') }}
                         </div>
                     </div>
                 </div>
