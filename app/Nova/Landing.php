@@ -65,6 +65,7 @@ class Landing extends Resource
 
             new Panel('Слайдер', [
                 Images::make('Слайдер', MediaCollection::getByCollection(MediaCollection::SLIDER))
+                    ->singleMediaRules('max:50000')
                     ->customPropertiesFields([
                         Text::make('Заголовок', 'title'),
                         Text::make('Подзаголовок', 'subtitle'),
@@ -81,6 +82,7 @@ class Landing extends Resource
                 Textarea::make('Текст ', 'data->about_us->description')
                     ->hideFromIndex(),
                 Files::make('Брошюра', MediaCollection::getByCollection(MediaCollection::BROCHURE))
+                    ->singleMediaRules('max:50000')
                     ->hideFromIndex(),
             ]),
 
@@ -90,9 +92,11 @@ class Landing extends Resource
                 Text::make('Подзаголовок ', 'data->advantages->subtitle')
                     ->hideFromIndex(),
                 Images::make('Картинка', MediaCollection::getByCollection(MediaCollection::ADVANTAGE_IMAGE))
+                    ->singleMediaRules('max:50000')
                     ->hideFromIndex(),
 
                 Images::make('Иконки', MediaCollection::getByCollection(MediaCollection::ADVANTAGES_ICON))
+                    ->singleMediaRules('max:50000')
                     ->customPropertiesFields([
                         Text::make('Текст', 'text')->rules('required'),
                     ])
@@ -101,12 +105,15 @@ class Landing extends Resource
 
             new Panel('Галлерея ', [
                 Text::make('Заголовок', 'data->gallery->title')->hideFromIndex(),
-                Images::make('Галлерея', MediaCollection::getByCollection(MediaCollection::GALLERY))->hideFromIndex()
+                Images::make('Галлерея', MediaCollection::getByCollection(MediaCollection::GALLERY))
+                    ->hideFromIndex()
+                    ->singleMediaRules('max:50000')
             ]),
 
 
             new Panel('Планировки ', [
                 Images::make('Планировки', MediaCollection::getByCollection(MediaCollection::LAYOUTS))
+                    ->singleMediaRules('max:50000')
                     ->customPropertiesFields([
                         Text::make('Кол-во спален', 'bedrooms')->rules('required'),
                         Text::make('Площадь', 'area')->rules('required'),
@@ -123,6 +130,7 @@ class Landing extends Resource
                 Textarea::make('Описание ', 'data->builder->description')
                     ->hideFromIndex(),
                 Files::make('Видео', MediaCollection::getByCollection(MediaCollection::BUILDER_VIDEO))
+                    ->singleMediaRules('max:50000')
                     ->hideFromIndex()
             ]),
 
