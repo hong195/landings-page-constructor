@@ -13,7 +13,7 @@
 
             @if ($text = data_get($landing->data, 'about_us.description'))
                 <div class="about__text">
-                    {!!$text !!}}}
+                    {!! $text !!}
                 </div>
             @endif
 

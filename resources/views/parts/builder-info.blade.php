@@ -11,7 +11,9 @@
         </h2>
         @if($description = data_get($landing->data, 'builder.description'))
             <div class="developer__text">
-                {!! $description !!}
+                <pre>
+                    {!! $description !!}
+                </pre>
             </div>
         @endif
     </div>

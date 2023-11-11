@@ -23,6 +23,7 @@
         "laravel/nova": "^4.0",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
+        "manogi/nova-tiptap": "^3.2",
         "outl1ne/nova-simple-repeatable": "^2.2",
         "spatie/laravel-medialibrary": "^10.0.0",
         "statikbe/laravel-nova-chained-translation-manager": "^3.0"

@@ -13,11 +13,7 @@ class LandingController extends Controller
     public function index()
     {
         /** @var Landing $landing */
-        $landing = Landing::whereLang(\app()->getLocale())->first();
-
-        if (!$landing) {
-            abort(404);
-        }
+        $landing = Landing::whereLang(\app()->getLocale())->firstOrFail();
 
         return view('landing', [
             'landing' => $landing,

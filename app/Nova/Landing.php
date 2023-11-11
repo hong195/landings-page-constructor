@@ -10,9 +10,9 @@ use Laravel\Nova\Fields\Hidden;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Panel;
+use Manogi\Tiptap\Tiptap;
 use Outl1ne\NovaSimpleRepeatable\SimpleRepeatable;
 
 class Landing extends Resource
@@ -69,7 +69,8 @@ class Landing extends Resource
                     ->customPropertiesFields([
                         Text::make('Заголовок', 'title'),
                         Text::make('Подзаголовок', 'subtitle'),
-                        Textarea::make('Текст', 'description'),
+                        Tiptap::make('Текст', 'description')
+                            ->buttons($this->getTipTapButtons()),
                     ])
                     ->hideFromIndex()
             ]),
@@ -79,7 +80,8 @@ class Landing extends Resource
                     ->hideFromIndex(),
                 Text::make('Подзаголовок ', 'data->about_us->subtitle')
                     ->hideFromIndex(),
-                Textarea::make('Текст ', 'data->about_us->description')
+                Tiptap::make('Текст ', 'data->about_us->description')
+                    ->buttons($this->getTipTapButtons())
                     ->hideFromIndex(),
                 Files::make('Брошюра', MediaCollection::getByCollection(MediaCollection::BROCHURE))
                     ->singleMediaRules('max:50000')
@@ -127,7 +129,8 @@ class Landing extends Resource
                     ->hideFromIndex(),
                 Text::make('Подзаголовок ', 'data->builder->subtitle')
                     ->hideFromIndex(),
-                Textarea::make('Описание ', 'data->builder->description')
+                Tiptap::make('Описание ', 'data->builder->description')
+                    ->buttons($this->getTipTapButtons())
                     ->hideFromIndex(),
                 Files::make('Видео', MediaCollection::getByCollection(MediaCollection::BUILDER_VIDEO))
                     ->singleMediaRules('max:50000')
@@ -196,5 +199,29 @@ class Landing extends Resource
     public function actions(NovaRequest $request)
     {
         return [];
+    }
+
+    private function getTipTapButtons() : array
+    {
+        return [
+            'heading',
+            '|',
+            'italic',
+            'bold',
+            '|',
+            'highlight',
+            '|',
+            'bulletList',
+            'orderedList',
+            'br',
+            'blockquote',
+            '|',
+            'horizontalRule',
+            'hardBreak',
+            '|',
+            'textAlign',
+            '|',
+            'editHtml',
+        ];
     }
 }
