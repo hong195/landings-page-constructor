@@ -20,7 +20,7 @@
                     <div class="header-slide__wrap">
                         @if($description = data_get($slide, 'description'))
                             <div class="header-slide__text">
-                                {{ $description }}
+                                {!! $description !!}
                             </div>
                         @endif
                         <a href="#plans" class="header-slide__btn gotoPlans">
