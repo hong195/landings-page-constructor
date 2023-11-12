@@ -56,6 +56,7 @@ class Landing extends Resource
                 Text::make('Домен', 'domain')->rules('required'),
                 Email::make('Адрес электронной почты', 'data->email')->rules('required'),
                 Text::make('Телефон', 'data->phone')->rules('required'),
+                Text::make('Телефон 2', 'data->second_phone'),
                 Files::make('Favicon', MediaCollection::getByCollection(MediaCollection::FAVICON)),
             ]),
 

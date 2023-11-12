@@ -52,7 +52,7 @@
     <div class="footer-copy">
         <div class="container">
             <p>{{ $landing->name }}</p>
-            <p>Golden Gate Properties</p>
+            <img src="{{ asset('img/logo.png') }}" alt="Golden Gate Logo">
         </div>
     </div>
 </footer>

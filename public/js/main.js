@@ -20,10 +20,95 @@ $(window).on('load', () => {
 
     let rootFont = parseInt($(':root').css('font-size'))
 
+    if(!sessionStorage.getItem('exit')) {
+        window.addEventListener('beforeunload', function (e) {
+            if(!sessionStorage.getItem('exit')) {
+                if (!localStorage.getItem('request_sent')) {
+                    $('.feedback').fadeIn(600)
+                }
+            }
+            sessionStorage.setItem('exit', true)
+            var confirmationMessage = 'Вы уверены, что хотите покинуть страницу? Ваши данные могут быть потеряны.'
+            e.returnValue = confirmationMessage
+            return confirmationMessage
+        })
+    }
 
     $('.gotoPlans').click(function(e){
         e.preventDefault()
         $('html, body').animate({ scrollTop: $('#plans').offset().top }, 2000)
+    })
+
+
+    //_____________FEEDBACK_________________
+
+
+    $('.feedback__close').click(e => {
+        e.preventDefault()
+        $('.feedback').fadeOut(600)
+    })
+
+
+
+    $(document).on('mouseleave', function() {
+        if(!sessionStorage.getItem('exit') || localStorage.getItem('request_sent')) {
+
+            if (!localStorage.getItem('request_sent')) {
+                $('.feedback').fadeIn(600)
+            }
+            sessionStorage.setItem('exit', true)
+        }
+    })
+
+
+    $('.feedback').click(e => {
+        let div = $('.feedback-content')
+        if (!div.is(e.target)
+            && div.has(e.target).length === 0) {
+            $('.feedback').fadeOut(600)
+        }
+    })
+
+    if (!localStorage.getItem('request_sent')) {
+        setTimeout(() => {
+            $('.feedback').fadeIn(600)
+        }, 30000)
+
+    }
+
+    $('#feedback_form').submit(function(event) {
+        event.preventDefault()
+
+        let $name = $(this).find('.form-input__name')
+        let $phone = $(this).find('.form-input__phone')
+
+
+        if (!$name.find('*').filter(':input:visible:first').val()) {
+            $name.find('.form-input__error').show()
+            return
+        }
+
+        if (!$phone.find('*').filter(':input:visible:first').length) {
+            $phone.find('.form-input__error').show()
+            return
+        }
+
+        $.ajax({
+            url: $(this).attr('action'),
+            type: 'POST',
+            data: $(this).serialize(),
+            success: function(data) {
+                setTimeout(() => {
+                    localStorage.setItem('request_sent', 1)
+                    $(this).find('.feedback-form__done').show()
+                }, 5000)
+
+                $('.feedback-success').fadeIn(100)
+
+
+                $('.feedback').fadeOut(600)
+            }
+        })
     })
 
     //________MAIN__________
@@ -31,13 +116,13 @@ $(window).on('load', () => {
     $('.header-top__btn').click(function() {
         $('html, body').animate({ scrollTop: $('.footer').offset().top }, 3000)
     })
-    
+
 
     $('.header-slide__item').each(function(index) {
         $('.header-nav__buttons').append(`<li><span>${index+1}</span></li>`)
     })
 
-    
+
     let mainSliderChange = event => {
         if (!event.namespace) {
         return;
@@ -45,8 +130,8 @@ $(window).on('load', () => {
         let slide = event.relatedTarget.current()
         let slideLength = $('.header-slide__item').length - event.page.size
 
-        slide == 0 ? $('.header-nav .arrow-left').addClass('hidden') : $('.header-nav .arrow-left').removeClass('hidden') 
-        slide == slideLength ? $('.header-nav .arrow-right').addClass('hidden') : $('.header-nav .arrow-right').removeClass('hidden') 
+        slide == 0 ? $('.header-nav .arrow-left').addClass('hidden') : $('.header-nav .arrow-left').removeClass('hidden')
+        slide == slideLength ? $('.header-nav .arrow-right').addClass('hidden') : $('.header-nav .arrow-right').removeClass('hidden')
 
         $('.header-nav__buttons li').removeClass('current')
         $('.header-nav__buttons li').eq(slide).addClass('current')
@@ -71,9 +156,9 @@ $(window).on('load', () => {
         $('.header-slider').trigger('prev.owl.carousel', [1000])
         $('.header-slider').trigger('stop.owl.autoplay')
     })
-    
+
     $('.header-nav .arrow-right').click(() => {
-        $('.header-slider').trigger('next.owl.carousel', [1000]) 
+        $('.header-slider').trigger('next.owl.carousel', [1000])
         $('.header-slider').trigger('stop.owl.autoplay')
     })
 
@@ -111,7 +196,7 @@ $(window).on('load', () => {
         $('.plans-choose__tab').eq(index).find('.plans-choose__flats li').eq(0).click()
     })
 
-    
+
 
 
 
@@ -135,7 +220,7 @@ $(window).on('load', () => {
         $('.map-info__item').click(function() {
             $('html, body').animate({ scrollTop: $('.map').offset().top }, 500)
         })
-        
+
     } else {
 
         $('body').niceScroll({
@@ -154,7 +239,7 @@ $(window).on('load', () => {
             let scrollTop = $(window).scrollTop()
             let gap = (scrollTop - galleryOffset) / galleryHeight * 100
             $('.gallery .container').css('margin-left', `-${galleryWidth / 100 * gap}px`)
-            
+
             $('.gallery-item').each(function() {
                 let offsetLeft = $(this).offset().left
                 $(this).find('.gallery-item__wrap').css('transform', `translateX(-${offsetLeft/4}px)`)

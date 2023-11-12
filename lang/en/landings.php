@@ -38,5 +38,10 @@ return [
             'sixth' => '18 mins',
         ],
         'title' => 'Map project'
-    ]
+    ],
+    'feedback' => [
+        'left_questions' => 'Have any questions?',
+        'leave_request' => 'Leave your contact details and we will contact you'
+    ],
+    'request_is_sent' => 'Request is sent',
 ];
