@@ -51,7 +51,7 @@ $(window).on('load', () => {
 
 
     $(document).on('mouseleave', function() {
-        if(!sessionStorage.getItem('exit') || localStorage.getItem('request_sent')) {
+        if(!sessionStorage.getItem('exit')) {
 
             if (!localStorage.getItem('request_sent')) {
                 $('.feedback').fadeIn(600)
@@ -256,7 +256,7 @@ $(window).on('load', () => {
 
     $('.form_tel').intlTelInput({
         autoPlaceholder: 'polite',
-        initialCountry: 'uz',
+        initialCountry: 'ae',
         nationalMode: false,
     })
 
