@@ -368,7 +368,7 @@ body {
           -ms-flex-align: center;
               align-items: center;
       gap: 3.2rem; }
-    .header-top__link {
+    .header-top__link, .header-top__tel {
       color: #fff;
       display: -webkit-inline-box;
       display: -ms-inline-flexbox;
@@ -376,12 +376,11 @@ body {
       -webkit-box-align: center;
           -ms-flex-align: center;
               align-items: center;
-      gap: .65rem;
-      pointer-events: none; }
-      .header-top__link svg {
+      gap: .65rem; }
+      .header-top__link svg, .header-top__tel svg {
         width: 1.1rem;
         display: block; }
-      .header-top__link div {
+      .header-top__link div, .header-top__tel div {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -389,8 +388,12 @@ body {
         -webkit-box-direction: normal;
             -ms-flex-direction: column;
                 flex-direction: column; }
-      .header-top__link:hover {
-        color: #BD9B68; }
+      .header-top__link a, .header-top__tel a {
+        color: #fff; }
+    .header-top__link:hover, .header-top__tel a:hover {
+      color: #BD9B68; }
+    .header-top__tel-svg {
+      pointer-events: none; }
   .header-lang {
     position: relative;
     font-size: 0.8rem;
@@ -668,6 +671,8 @@ body {
         display: block;
         -o-object-fit: cover;
            object-fit: cover; }
+      .map-main__svg .road {
+        display: none; }
       .map-main__svg .logo {
         -webkit-animation: mapLogo 1s linear infinite alternate;
                 animation: mapLogo 1s linear infinite alternate; }
@@ -903,8 +908,20 @@ body {
 
 .plans {
   padding: 6rem 0; }
-  .plans .section-title {
+  .plans-head {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     margin-bottom: 2.5rem; }
+  .plans__down {
+    border-color: #201D1E;
+    color: #201D1E; }
   .plans__subtitle {
     font-size: 1.1rem;
     margin-bottom: 1.5rem; }
@@ -1078,6 +1095,42 @@ body {
   .pay .section-title {
     margin-bottom: 2.5rem;
     text-align: center; }
+  .pay-head {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-bottom: 2.5rem; }
+    .pay-head__item {
+      height: 5rem;
+      width: 16.5rem;
+      font-size: 1rem;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      border: 1px solid rgba(32, 29, 30, 0.2);
+      color: rgba(32, 29, 30, 0.2);
+      cursor: pointer;
+      -webkit-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+      text-align: center; }
+      .pay-head__item:first-child {
+        border-radius: 5rem 0 0 5rem; }
+      .pay-head__item:last-child {
+        border-radius: 0 5rem 5rem 0; }
+      .pay-head__item.current {
+        border-color: #201D1E;
+        color: #201D1E; }
   .pay-table {
     border: 1px solid rgba(32, 29, 30, 0.2);
     width: 55rem;
@@ -1087,7 +1140,7 @@ body {
       display: -ms-flexbox;
       display: flex;
       height: 5rem;
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       font-weight: 500; }
       .pay-table__head div {
         height: 100%;
@@ -1101,14 +1154,16 @@ body {
                 justify-content: center;
         -webkit-box-align: center;
             -ms-flex-align: center;
-                align-items: center; }
+                align-items: center;
+        text-align: center; }
         .pay-table__head div:first-child {
           border: none;
           width: 31%;
           padding-left: 1.5rem;
           -webkit-box-pack: start;
               -ms-flex-pack: start;
-                  justify-content: flex-start; }
+                  justify-content: flex-start;
+          text-align: left; }
     .pay-table__row {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -1138,6 +1193,10 @@ body {
                   justify-content: flex-start; }
         .pay-table__row div:last-child {
           font-weight: 500; }
+    .pay-table__wrap {
+      display: none; }
+      .pay-table__wrap.current {
+        display: block; }
 
 .footer-top {
   color: #fff;
@@ -1264,12 +1323,12 @@ body {
     font-size: 1.35rem; }
   .header-top__wrap {
     gap: 2rem; }
-  .header-top__link {
+  .header-top__link div, .header-top__tel div {
+    display: none; }
+  .header-top__link span, .header-top__tel span {
+    display: none; }
+  .header-top__tel-svg {
     pointer-events: auto; }
-    .header-top__link div {
-      display: none; }
-    .header-top__link span {
-      display: none; }
   .header-top__btn {
     font-size: 0.9rem; }
   .header-slide__item {
@@ -1557,7 +1616,7 @@ body {
 
   .plans {
     padding: 4.5rem 0; }
-    .plans .section-title {
+    .plans-head {
       margin-bottom: 1.5rem; }
     .plans__subtitle {
       font-size: 1rem; }
@@ -1603,20 +1662,31 @@ body {
     padding: 4.5rem 0; }
     .pay .container {
       padding: 0; }
+    .pay-head {
+      padding: 0 1rem;
+      margin-bottom: 1.5rem; }
+      .pay-head__item {
+        width: 50%;
+        font-size: 0.85rem;
+        height: 3.5rem; }
     .pay-table {
-      width: 43rem; }
+      width: 50rem; }
       .pay-table__wrap {
         padding: 1rem;
         overflow: auto; }
         .pay-table__wrap::-webkit-scrollbar {
           display: none; }
       .pay-table__head div:nth-child(2) {
-        width: 17%; }
+        width: 18%; }
       .pay-table__head div:nth-child(3) {
         width: 26%; }
+      .pay-table__head div:nth-child(4) {
+        width: 26%; }
       .pay-table__row div:nth-child(2) {
-        width: 17%; }
+        width: 18%; }
       .pay-table__row div:nth-child(3) {
+        width: 26%; }
+      .pay-table__row div:nth-child(4) {
         width: 26%; }
 
   .footer-top {

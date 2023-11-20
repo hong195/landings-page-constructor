@@ -1,8 +1,13 @@
 <section class="plans" id="plans">
     <div class="container">
-        <h2 class="section-title wow fadeInUp" data-wow-delay=".3s">
-            {{ trans('landings.types') }}
-        </h2>
+        <div class="plans-head">
+            <h2 class="section-title wow fadeInUp" data-wow-delay=".3s">
+                {{ trans('landings.types') }}
+            </h2>
+            <a href="#" class="plans__down btn" download>
+                Скачать планировки
+            </a>
+        </div>
         <div class="plans__subtitle">
             {{ trans('landings.bedrooms_count') }}
         </div>
