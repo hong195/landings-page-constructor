@@ -46,12 +46,27 @@
                     <div>{{ trans('landings.sqrt_ft_max') }}</div>
                     <div>{{ trans('landings.start_price') }}</div>
                 </div>
-                <div class="pay-table__row">
-                    <div>1-Bedroom Apartment</div>
-                    <div>693</div>
-                    <div>1,009</div>
-                    <div>1,45</div>
-                </div>
+
+                @foreach(data_get($landing->data, 'flat') as $plan)
+                    <div class="pay-table__row">
+                        @if ($step = data_get($plan, 'unit'))
+                            <div>{{ $step }}</div>
+                        @endif
+
+                        @if ($percent = data_get($plan, 'min_sqrt'))
+                            <div>{{ $percent }}</div>
+                        @endif
+
+                        @if ($date = data_get($plan, 'max_sqrt'))
+                            <div>{{ $date }}</div>
+                        @endif
+
+                        @if ($price = data_get($plan, 'price'))
+                            <div>{{ $price }}</div>
+                        @endif
+                    </div>
+                @endforeach
+
             </div>
         </div>
     </div>
