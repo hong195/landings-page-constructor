@@ -25,6 +25,7 @@ class LandingController extends Controller
             'plans' => MediaService::getPlans($landing),
             'builderVideo' => MediaService::getBuilderVideo($landing),
             'availableLanguages' => $this->getLocales(),
+            'layoutsFile' => $landing->getFirstMedia(MediaCollection::getByCollection(MediaCollection::LAYOUTS_FILE))?->getFullUrl(),
         ]);
     }
 

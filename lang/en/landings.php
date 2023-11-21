@@ -44,4 +44,5 @@ return [
         'leave_request' => 'Leave your contact details and we will contact you'
     ],
     'request_is_sent' => 'Request is sent',
+    'layouts_file' => "Download Layouts"
 ];

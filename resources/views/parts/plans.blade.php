@@ -4,8 +4,8 @@
             <h2 class="section-title wow fadeInUp" data-wow-delay=".3s">
                 {{ trans('landings.types') }}
             </h2>
-            <a href="#" class="plans__down btn" download>
-                Скачать планировки
+            <a href="{{ $layoutsFile }}" class="plans__down btn" download>
+                {{ trans('landings.layouts_file') }}
             </a>
         </div>
         <div class="plans__subtitle">
