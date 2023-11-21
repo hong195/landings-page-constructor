@@ -142,15 +142,28 @@ class Landing extends Resource
                     ->hideFromIndex()
             ]),
 
-            new Panel('План оплат', [
+            new Panel('Стоимость квартир', [
                 SimpleRepeatable::make('План оплат', 'data->payment_plan', [
                     Text::make('Этап', 'step')->rules('required')
                         ->hideFromIndex(),
-                    Number::make('%', 'percent')->rules('required')
+                    Text::make('%', 'percent')->rules('required')
                         ->hideFromIndex(),
                     Text::make('Дата', 'date')->rules('required')
                         ->hideFromIndex(),
                     Text::make('AED', 'price')->rules('required')
+                        ->hideFromIndex(),
+                ])
+            ]),
+
+            new Panel('План оплат', [
+                SimpleRepeatable::make('План оплат', 'data->flat', [
+                    Text::make('Квартира', 'unit')->rules('required')
+                        ->hideFromIndex(),
+                    Text::make('Мин площадь', 'min_sqrt')->rules('required')
+                        ->hideFromIndex(),
+                    Text::make('Макс площадь', 'max_sqrt')->rules('required')
+                        ->hideFromIndex(),
+                    Text::make('Цена', 'price')->rules('required')
                         ->hideFromIndex(),
                 ])
             ]),

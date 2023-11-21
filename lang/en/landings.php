@@ -44,5 +44,10 @@ return [
         'leave_request' => 'Leave your contact details and we will contact you'
     ],
     'request_is_sent' => 'Request is sent',
-    'layouts_file' => "Download Layouts"
+    'layouts_file' => "Download Layouts",
+    "flat_price" => "Flat price",
+    "available_units" => "Available Units",
+    "sqrt_ft_min" => "Area Sq. ft . Minimum",
+    "sqrt_ft_max" => "Area Sq. ft . Maximum",
+    "start_price" => "Starting Price (In AED Mn)",
 ];
