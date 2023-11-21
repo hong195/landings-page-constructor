@@ -47,21 +47,21 @@
                     <div>{{ trans('landings.start_price') }}</div>
                 </div>
 
-                @foreach(data_get($landing->data, 'flat') as $plan)
+                @foreach(data_get($landing->data, 'flat', []) as $flat)
                     <div class="pay-table__row">
-                        @if ($step = data_get($plan, 'unit'))
+                        @if ($step = data_get($flat, 'unit'))
                             <div>{{ $step }}</div>
                         @endif
 
-                        @if ($percent = data_get($plan, 'min_sqrt'))
+                        @if ($percent = data_get($flat, 'min_sqrt'))
                             <div>{{ $percent }}</div>
                         @endif
 
-                        @if ($date = data_get($plan, 'max_sqrt'))
+                        @if ($date = data_get($flat, 'max_sqrt'))
                             <div>{{ $date }}</div>
                         @endif
 
-                        @if ($price = data_get($plan, 'price'))
+                        @if ($price = data_get($flat, 'price'))
                             <div>{{ $price }}</div>
                         @endif
                     </div>
