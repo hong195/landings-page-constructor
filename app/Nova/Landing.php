@@ -5,6 +5,7 @@ namespace App\Nova;
 use App\Models\MediaCollection;
 use Ebess\AdvancedNovaMediaLibrary\Fields\Files;
 use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
+use Faker\Core\File;
 use Laravel\Nova\Fields\Email;
 use Laravel\Nova\Fields\Hidden;
 use Laravel\Nova\Fields\ID;
@@ -122,6 +123,9 @@ class Landing extends Resource
                         Text::make('Площадь', 'area')->rules('required'),
                         Text::make('Этаж', 'floor')->rules('required'),
                     ])
+                    ->hideFromIndex(),
+
+                Files::make('Файл', MediaCollection::getByCollection(MediaCollection::LAYOUTS_FILE))
                     ->hideFromIndex()
             ]),
 

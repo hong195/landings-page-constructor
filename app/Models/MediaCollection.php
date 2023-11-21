@@ -20,6 +20,8 @@ enum MediaCollection : string
 
     case LAYOUTS = 'layouts';
 
+    case LAYOUTS_FILE = 'layouts_file';
+
     case BUILDER_VIDEO = 'builder_video';
 
     public static function getByCollection(self $case): string
