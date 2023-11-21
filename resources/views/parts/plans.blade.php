@@ -4,9 +4,11 @@
             <h2 class="section-title wow fadeInUp" data-wow-delay=".3s">
                 {{ trans('landings.types') }}
             </h2>
-            <a href="{{ $layoutsFile }}" class="plans__down btn" download>
-                {{ trans('landings.layouts_file') }}
-            </a>
+            @if ($layoutsFile)
+                <a href="{{ $layoutsFile }}" class="plans__down btn" download>
+                    {{ trans('landings.layouts_file') }}
+                </a>
+            @endif
         </div>
         <div class="plans__subtitle">
             {{ trans('landings.bedrooms_count') }}
