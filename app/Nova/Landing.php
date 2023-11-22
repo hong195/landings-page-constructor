@@ -146,7 +146,7 @@ class Landing extends Resource
                 SimpleRepeatable::make('План оплат', 'data->payment_plan', [
                     Text::make('Заголовок', 'title')->rules('required')
                         ->hideFromIndex(),
-                    Text::make('Подзаголовок    ', 'subtitle')->rules('required')
+                    Text::make('Подзаголовок    ', 'subtitle')
                         ->hideFromIndex(),
                     Text::make('%', 'percent')->rules('required')
                         ->hideFromIndex(),
