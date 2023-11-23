@@ -4,6 +4,7 @@ use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\LanguageController;
 use Illuminate\Support\Facades\Route;
+use Revolution\Google\Sheets\Facades\Sheets;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,17 @@ Route::post('applications', [ApplicationController::class, 'store'])->name('appl
 
 Route::get('lang/{lang}', [LanguageController::class, 'switchLang'])->name('switch-lang');
 
+Route::any('test', function() {
+    $application = \App\Models\Application::first();
+
+    $dataToAppend = [
+        $application->data['name'] ?? '',
+        $application->data['phone'] ?? '',
+        $application->data['type'] ?? '',
+        $application->created_at->toDateTimeString(),
+    ];
+
+    Sheets::spreadsheet(config('google.sheets.post_spreadsheet_id'))
+        ->sheet(config('google.sheets.post_sheet_id'))
+        ->append([$dataToAppend]);
+});
