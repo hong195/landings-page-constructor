@@ -23,7 +23,10 @@ Route::post('applications', [ApplicationController::class, 'store'])->name('appl
 
 Route::get('lang/{lang}', [LanguageController::class, 'switchLang'])->name('switch-lang');
 
-Route::post('amocrm/integration', [ApplicationController::class, 'store'])->name('applications.store');
+Route::post('amocrm/integration', function (\Illuminate\Http\Request $request) {
+    info('info', [$request->all()]);
+})
+    ->name('amocrm.integration');
 
 Route::any('test', function() {
     $application = \App\Models\Application::first();
