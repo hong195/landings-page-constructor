@@ -3,6 +3,7 @@
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\LanguageController;
+use App\Services\AmoCRMService;
 use Illuminate\Support\Facades\Route;
 use Revolution\Google\Sheets\Facades\Sheets;
 
@@ -29,16 +30,7 @@ Route::post('amocrm/integration', function (\Illuminate\Http\Request $request) {
     ->name('amocrm.integration');
 
 Route::any('test', function() {
-    $application = \App\Models\Application::first();
+    $amoCrm = new AmoCRMService();
 
-    $dataToAppend = [
-        $application->data['name'] ?? '',
-        $application->data['phone'] ?? '',
-        $application->data['type'] ?? '',
-        $application->created_at->toDateTimeString(),
-    ];
-
-    Sheets::spreadsheet(config('google.sheets.post_spreadsheet_id'))
-        ->sheet(config('google.sheets.post_sheet_id'))
-        ->append([$dataToAppend]);
+    $amoCrm->createDeal();
 });
