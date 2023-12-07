@@ -16,6 +16,7 @@
     ],
     "require": {
         "php": "^8.1",
+        "amocrm/amocrm-api-library": "^1.4",
         "badinansoft/nova-language-switch": "^1.2",
         "ebess/advanced-nova-media-library": "dev-master",
         "guzzlehttp/guzzle": "^7.2",
