@@ -15,6 +15,7 @@
             </div>
             <form id="feedback_form" method="POST" action="{{ route('applications.store') }}" class="feedback-form">
                 @csrf
+                <input type="hidden" name="landing_id" value="{{ $landing->id }}">
                 <div class="form-input form-input__name">
                     <div class="form-input__input">
                         <input type="text" name="name" placeholder="Имя" class="form_name">

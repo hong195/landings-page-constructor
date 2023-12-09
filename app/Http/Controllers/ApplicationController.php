@@ -15,6 +15,7 @@ class ApplicationController extends Controller
             'name' => $request->get('name'),
             'phone' => $request->get('phone'),
             'type' => $request->get('type'),
+            'landing_id' => $request->get('landing_id'),
         ];
         $application->save();
 

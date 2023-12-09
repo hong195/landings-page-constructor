@@ -8,6 +8,7 @@
                 </h2>
                 <form method="POST" action="{{ route('applications.store') }}">
                     @csrf
+                    <input type="hidden" name="landing_id" value="{{ $landing->id }}">
                     <div class="footer-form form">
                         <div class="form-input">
                             <div class="form-input__input">

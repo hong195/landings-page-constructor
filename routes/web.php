@@ -3,6 +3,8 @@
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\LanguageController;
+use App\Models\AmoCRM\LeadsService;
+use App\Services\AmoCRM\AmoCrmService;
 use App\Services\AmoCRM\TokenService;
 use Illuminate\Support\Facades\Route;
 use Revolution\Google\Sheets\Facades\Sheets;
@@ -30,7 +32,12 @@ Route::post('amocrm/integration', function (\Illuminate\Http\Request $request) {
     ->name('amocrm.integration');
 
 Route::any('test', function() {
-    $amoCrm = new TokenService();
+    /* @var AmoCrmService $amoCrm*/
+    $amoCrm = new AmoCrmService(
+        'test',
+        'test',
+        'test'
+    );
 
-    $amoCrm->getTokenByCode();
+    dd($amoCrm->send('test', 'test2', 'test'));
 });
