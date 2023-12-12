@@ -18,6 +18,10 @@ class LanguageController extends Controller
             Session::put('applocale', $lang);
         }
 
-        return Redirect::back();
+        if ($lang === 'ru') {
+            return Redirect::route('landing');
+        }
+
+        return Redirect::route('landing', ['lang' => $lang]);
     }
 }

@@ -18,7 +18,7 @@
                 <input type="hidden" name="landing_id" value="{{ $landing->id }}">
                 <div class="form-input form-input__name">
                     <div class="form-input__input">
-                        <input type="text" name="name" placeholder="Имя" class="form_name">
+                        <input type="text" name="name" placeholder="Имя" class="form_name" required>
                     </div>
                     <div class="form-input__error">
                         {{ trans('landings.wrong_data') }}
@@ -26,7 +26,7 @@
                 </div>
                 <div class="form-input form-input__phone">
                     <div class="form-input__input">
-                        <input type="tel" name="phone" placeholder="Номер телефона" class="form_tel">
+                        <input type="tel" name="phone" placeholder="Номер телефона" class="form_tel" required>
                     </div>
                     <div class="form-input__error">
                         {{ trans('landings.wrong_data') }}

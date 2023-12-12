@@ -20,7 +20,7 @@ use Revolution\Google\Sheets\Facades\Sheets;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\LandingController::class, 'index'])->name('landing');
+Route::get('/{lang?}', [\App\Http\Controllers\LandingController::class, 'index'])->name('landing');
 
 Route::post('applications', [ApplicationController::class, 'store'])->name('applications.store');
 
@@ -30,14 +30,3 @@ Route::post('amocrm/integration', function (\Illuminate\Http\Request $request) {
     info('info', [$request->all()]);
 })
     ->name('amocrm.integration');
-
-Route::any('test', function() {
-    /* @var AmoCrmService $amoCrm*/
-    $amoCrm = new AmoCrmService(
-        'test',
-        'test',
-        'test'
-    );
-
-    dd($amoCrm->send('test', 'test2', 'test'));
-});

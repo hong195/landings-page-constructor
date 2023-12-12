@@ -12,7 +12,7 @@
                     <div class="footer-form form">
                         <div class="form-input">
                             <div class="form-input__input">
-                                <input type="text" name="name" placeholder="{{ trans('landings.name') }}" class="form_name">
+                                <input type="text" name="name" placeholder="{{ trans('landings.name') }}" class="form_name" required>
                             </div>
                             <div class="form-input__error">
                                 {{ trans('landings.wrong_data') }}
@@ -20,7 +20,7 @@
                         </div>
                         <div class="form-input">
                             <div class="form-input__input">
-                                <input type="tel" name="phone"placeholder="{{ trans('landings.phone') }}" class="form_tel">
+                                <input type="tel" name="phone"placeholder="{{ trans('landings.phone') }}" class="form_tel" required>
                             </div>
                             <div class="form-input__error">
                                 {{ trans('landings.wrong_data') }}

@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ApplicationRequest;
 use App\Models\Application;
-use Illuminate\Http\Request;
 
 class ApplicationController extends Controller
 {
-    public function store(Request $request)
+    public function store(ApplicationRequest $request)
     {
         $application = new Application();
 
