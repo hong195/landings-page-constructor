@@ -44,9 +44,8 @@
                         </svg>
                     </div>
                     <div class="header-lang__list">
-                        @foreach($availableLanguages as $locale)
-                            <a href="{{ route('switch-lang', ['lang' => $locale]) }}">{{ $locale }}</a>
-                        @endforeach
+                        <a href="{{ route('landing') }}">RU</a>
+                        <a href="{{ route('landing', ['lang' => 'en']) }}">EN</a>
                     </div>
                 </div>
                 <a href="#footer" class="header-top__btn btn">

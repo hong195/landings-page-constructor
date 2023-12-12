@@ -24,8 +24,6 @@ Route::get('/{lang?}', [\App\Http\Controllers\LandingController::class, 'index']
 
 Route::post('applications', [ApplicationController::class, 'store'])->name('applications.store');
 
-Route::get('lang/{lang}', [LanguageController::class, 'switchLang'])->name('switch-lang');
-
 Route::post('amocrm/integration', function (\Illuminate\Http\Request $request) {
     info('info', [$request->all()]);
 })
