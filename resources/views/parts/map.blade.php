@@ -3,7 +3,7 @@
         <div class="map-main">
             <div class="map-main__wrap">
                 <div class="map-main__img">
-                    <img src="img/map.jpg" alt="map">
+                    <img src="{{ asset('img/map.jpg') }}" alt="map">
                 </div>
                 <div class="map-main__svg">
                     <svg width="913" height="730" viewBox="0 0 913 730" fill="none" xmlns="http://www.w3.org/2000/svg">
